@@ -1,0 +1,14 @@
+@mixin font-face($fontFamily, $fontName, $fontStyle, $fontWeight) {
+    @font-face {
+        font: {
+            family: $fontFamily;
+            style: $fontStyle;
+            weight: $fontWeight;
+        }
+        src: url('/css/fonts/' + $fontName + '.eot');
+        src: url('/css/fonts/' + $fontName + '.eot?#iefix') format('embedded-opentype'),
+        url('/css/fonts/' + $fontName + '.woff') format('woff'),
+        url('/css/fonts/' + $fontName + '.ttf') format('truetype'),
+        url('/css/fonts/' + $fontName + '.svg#' + $fontName) format('svg');
+    }
+}

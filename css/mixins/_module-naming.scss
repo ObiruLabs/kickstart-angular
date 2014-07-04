@@ -1,0 +1,13 @@
+// Elements
+@mixin e($name) {
+    @at-root &--#{$name} {
+        @content;
+    }
+}
+
+// Sub-modules
+@mixin sm($name) {
+    @at-root &_#{$name} {
+        @content;
+    }
+}

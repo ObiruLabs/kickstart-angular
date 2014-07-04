@@ -1,0 +1,15 @@
+- def render(filename, variables = {})
+    - contents = File.read("#{filename}.haml")
+    - Haml::Engine.new(contents).render(Object.new, variables)
+!!!
+%html{ id: 'ng-app', 'xmlns:ng' => 'http://angularjs.org' }
+    %head
+        = render 'partials/head'
+    %body
+        %p.browsehappy<
+            You are using an
+            %span outdated
+            browser. Please
+            %a{ href: 'http://whatbrowser.org' } upgrade your browser.
+
+        Hello World!

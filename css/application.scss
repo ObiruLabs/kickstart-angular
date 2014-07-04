@@ -1,0 +1,39 @@
+@import 'mixins/animations';
+@import 'mixins/fonts';
+@import 'mixins/polyfills';
+
+@import 'bootstrap_overrides';
+@import 'bootstrap';
+@import 'geomicons';
+
+.browsehappy {
+    @include make-sm-column(8);
+    @include make-sm-column-offset(12);
+
+    background: #fff;
+    display: none;
+
+    font: {
+        size: 18px;
+        weight: 300;
+    };
+    margin: {
+        bottom: 40px;
+        top: 40px;
+    };
+    text-align: center;
+
+    a {
+        color: #259FFF;
+    }
+
+    span {
+        font-weight: 600;
+    }
+}
+
+.mz-no-generatedcontent {
+    .browsehappy {
+        display: block;
+    }
+}

@@ -1,0 +1,2 @@
+RewriteEngine On
+AddType text/x-component .htc
