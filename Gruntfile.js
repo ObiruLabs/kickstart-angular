@@ -24,6 +24,37 @@ module.exports = function(grunt) {
     // Project configuration.
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
+        watch: {
+            haml: {
+              files: ['**/*.haml'],
+              tasks: ['haml']
+            },
+            sass: { 
+              files: ['**/*.sass'],
+              tasks: ['sass']
+            },
+        },
+        sass: {
+            dist: {
+                options: {
+                    style: 'expanded'
+                },
+                files: [{
+                    expand: true,
+                    src: 'css/*.scss',
+                    ext: '.css'
+                }]
+            }
+        },
+        haml: {
+            dist: {
+                files: [{
+                    expand: true,
+                    src: "**/*.haml",
+                    ext: ".html"
+                }]
+            }
+        },
         uglify: {
             options: {
                 banner: '/*! <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd") %> */\n',
@@ -83,7 +114,10 @@ module.exports = function(grunt) {
                 }
             },
             html: {
-                src: ['index.html'],
+                files: [{
+                    expand: true,
+                    src: "**/*.html"
+                }],
                 options: {
                     patterns: {
                         'Linking application': /([a-z]+\/application.*\.js)/,
@@ -93,7 +127,10 @@ module.exports = function(grunt) {
             }
         }
     });
-
+    
+    grunt.loadNpmTasks('grunt-contrib-watch');
+    grunt.loadNpmTasks('grunt-contrib-sass');
+    grunt.loadNpmTasks('grunt-contrib-haml');
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-cssmin');
     grunt.loadNpmTasks('grunt-contrib-clean');
@@ -106,6 +143,6 @@ module.exports = function(grunt) {
     // Version all assets
     // Link the versioned assets
     // Compile the versioned assets
-    grunt.registerTask('default', ['clean', 'uglify:dependencies', 'filerev', 'userev', 'uglify:app']);
+    grunt.registerTask('default', ['sass', 'haml', 'clean', 'uglify:dependencies', 'filerev', 'userev', 'uglify:app']);
 
 };

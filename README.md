@@ -1,7 +1,7 @@
 KickStart
 ============
 
-Static site template that provides basic index page setup, AngularJS hooked up, Bootstrap ready, site with Modernizr included.
+Static site template that provides basic index page setup, AngularJS hooked up, Bootstrap ready, site with Modernizr included. Uses Haml and Sass.
 
 Setup
 -----------
@@ -34,15 +34,15 @@ Setup
   * .package.json
   * .Gruntfile.js
 
-Contributing
+Development
 -----------
+* Run `grunt watch` to watch for changes in Haml and Sass files and automatically compile to HTML and CSS
 * When adding new JavaScript files:
   * Add them to ` application.js `
   * Copy over the dependency list to ` Gruntfile.js `
 * When adding a new CSS module:
-  * Include module inside ` application.css `
+  * Include module inside ` application.scss `
 * When including a new asset, consider using an aws s3 bucket
-* When adding new HTML files, add filename to ` Gruntfile.js `
 
 Deployment
 -----------
