@@ -29,7 +29,7 @@ module.exports = function(grunt) {
               files: ['**/*.haml'],
               tasks: ['haml']
             },
-            sass: {
+            sass: { 
               files: ['**/*.sass'],
               tasks: ['sass']
             },
@@ -114,7 +114,10 @@ module.exports = function(grunt) {
                 }
             },
             html: {
-                src: ['index.html'],
+                files: [{
+                    expand: true,
+                    src: "**/*.html"
+                }],
                 options: {
                     patterns: {
                         'Linking application': /([a-z]+\/application.*\.js)/,
