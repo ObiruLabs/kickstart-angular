@@ -24,6 +24,14 @@ module.exports = function(grunt) {
     // Project configuration.
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
+        connect: {
+            server: {
+                options: {
+                    port: 8080,
+                    keepalive: true
+                }
+            }
+        },
         watch: {
             haml: {
               files: ['**/*.haml'],
@@ -127,7 +135,8 @@ module.exports = function(grunt) {
             }
         }
     });
-    
+
+    grunt.loadNpmTasks('grunt-contrib-connect');
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-sass');
     grunt.loadNpmTasks('grunt-contrib-haml');
@@ -144,5 +153,6 @@ module.exports = function(grunt) {
     // Link the versioned assets
     // Compile the versioned assets
     grunt.registerTask('default', ['sass', 'haml', 'clean', 'uglify:dependencies', 'filerev', 'userev', 'uglify:app']);
+    grunt.registerTask('server', 'connect');
 
 };
