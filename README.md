@@ -36,6 +36,7 @@ Setup
 
 Development
 -----------
+* Run `grunt server` to start up a server on `localhost:8080`
 * Run `grunt watch` to watch for changes in Haml and Sass files and automatically compile to HTML and CSS
 * When adding new JavaScript files:
   * Add them to ` application.js `
