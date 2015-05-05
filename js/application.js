@@ -8,8 +8,10 @@
         i;
 
     var commonDependencies = [
-            'common', 'jquery', 'angular.min', 'angular-animate.min', 'angular-resource.min',
-            'angular-sanitize.min', 'angular-spinner', 'app'
+            'lodash.min', 'moment.min', 'spin.min', 'jquery', 'autofill-event',
+            'angular.min', 'angular-animate.min', 'angular-resource.min', 'angular-sanitize.min',
+            'angular-spinner.min',
+            'app'
         ],
         indexDependencies = [
             'vendor/jquery.unveil.min', 'vendor/bootstrap'
@@ -50,9 +52,6 @@
             load: commonDependencies,
             complete: function () {
                 $(document).ready(function () {
-                    // Mix in non-conflict functions to Underscore namespace if you want
-                    _.mixin(_.str.exports());
-
                     Modernizr.load({ load: indexDependencies.concat(appDependencies), complete: initializeAngular });
 
                     function initializeAngular() {
